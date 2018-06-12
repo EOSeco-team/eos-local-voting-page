@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>EOS 离线签名工具 | EOSeco 出品</title>
+    <title>EOS Offline Signing Tool 离线签名工具 | EOSeco 出品</title>
     <link rel="shortcut icon" type="image/x-icon" href="resource/favicon.ico">
     <link rel="stylesheet" href="resource/bootstrap.min.css">
 
@@ -20,7 +20,7 @@
             try {
                 jsonUnsigned = JSON.parse(unsigned);
             } catch {
-                alert('格式错误');
+                alert('格式错误 | Format Error');
             }
 
 
@@ -44,7 +44,7 @@
             try {
                 jsonUnsigned = JSON.parse(unsigned);
             } catch {
-                alert('格式错误');
+                alert('格式错误 | Format Error');
             }
 
             let accountName = jsonUnsigned.transaction.actions[0].authorization[0].actor;
@@ -60,56 +60,61 @@
     <div class="text-center">
         <img height=150px src="resource/logo.png">
     </div>
-    <h1 class="text-center">EOS 离线签名工具 | EOSeco 出品</h1>
+    <h1 class="text-center">EOS Offline Signing Tool | EOS 离线签名工具</h1>
 
     <section id="alerts">
         <div class="alert alert-warning" role="alert">
             此页面可以离线使用，私钥只会在本地用来签名交易，您的私钥不会通过网络传输。安全起见，请关闭所有其他网页，在签名成功，复制报文后请立即关闭此页面。
         </div>
+        <div class="alert alert-warning" role="alert">
+            This page can work offline, private key just for signing transaction, private key will not transfer through network. To be
+            safe, you can close other web pages. After signing, you can close this page immediately.
+        </div>
     </section>
 
     <div class="form-group">
         <label for="eos-chain-id">
-            <strong>链ID</strong>
+            <strong>链ID | Chain ID</strong>
         </label>
         <p id="chain-id" class="form-control">aca376f206b8fc25a6ed44dbdc66547c36c6c33e3a119ffbeaef943642f0e906</p>
     </div>
 
     <div class="form-group">
         <label for="eos-chain-id">
-            <strong>未签名报文</strong>
+            <strong>未签名报文 | Unsigned Transaction</strong>
         </label>
         <textarea id="unsigned-message" class="form-control" rows="10" onblur="getAccount()"></textarea>
     </div>
 
     <div class="form-group">
         <label for="eos-chain-id">
-            <strong>账户</strong>
+            <strong>账户 | Account</strong>
         </label>
         <input id="account_name" class="form-control" readonly=true></input>
     </div>
 
 
     <div class="form-group">
-        <label>私钥</label>
-        <input id="private-key" class="form-control" placeholder="输入私钥">
+        <label>私钥 | Private Key</label>
+        <input id="private-key" class="form-control" placeholder="输入私钥|Input private key">
     </div>
     </div>
 
 
     <div class="form-group">
-        <button id="vote" class="btn btn-primary" onclick="signMessage()">签名交易报文</button>
+        <button id="vote" class="btn btn-primary" onclick="signMessage()">签名交易报文|Sign Transaction</button>
     </div>
 
     <div class="form-group">
         <label for="eos-chain-id">
-            <strong>已签名报文</strong>
+            <strong>已签名报文 | Signed Transaction</strong>
         </label>
         <textarea id="signed-message" class="form-control" rows="10" readonly=true></textarea>
     </div>
 
     <div class="form-group">
-        <button id="copy" class="btn btn-success" data-clipboard-target="#signed-message">复制已签名报文</button>
+        <button id="copy" class="btn btn-success" data-clipboard-target="#signed-message">复制已签名报文|Copy signed trasaction</button>
+        <button id="close" class="btn btn-danger" onclick="window.close()">关闭页面|Close Page</button>
     </div>
 
     <!-- 1、引入相关的 clipboard 文件  -->
