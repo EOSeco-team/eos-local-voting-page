@@ -15,8 +15,14 @@
 
         function signMessage() {
 
-            let unsigned = document.getElementById('unsignd-message').value;
-            let jsonUnsigned = JSON.parse(unsigned);
+            let unsigned = document.getElementById('unsigned-message').value;
+            let jsonUnsigned;
+            try {
+                jsonUnsigned = JSON.parse(unsigned);
+            } catch {
+                alert('格式错误');
+            }
+
 
             let chain_id = document.getElementById("chain-id").innerHTML;
 
@@ -25,12 +31,26 @@
 
             let signed = EosOffline(jsonUnsigned, chain_id, wif);
 
-            document.getElementById('signd-message').innerHTML = signed;
+            document.getElementById('signed-message').innerHTML = signed;
 
             //清空私钥
             wif = null;
-            
+
         }
+
+        function getAccount() {
+            let unsigned = document.getElementById('unsigned-message').value;
+            let jsonUnsigned;
+            try {
+                jsonUnsigned = JSON.parse(unsigned);
+            } catch {
+                alert('格式错误');
+            }
+
+            let accountName = jsonUnsigned.transaction.actions[0].authorization[0].actor;
+            document.getElementById('account_name').value = accountName;
+        }
+
 
     </script>
 
@@ -59,7 +79,14 @@
         <label for="eos-chain-id">
             <strong>未签名报文</strong>
         </label>
-        <textarea id="unsignd-message" class="form-control" rows="10"></textarea>
+        <textarea id="unsigned-message" class="form-control" rows="10" onblur="getAccount()"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="eos-chain-id">
+            <strong>账户</strong>
+        </label>
+        <input id="account_name" class="form-control" readonly=true></input>
     </div>
 
 
@@ -78,11 +105,11 @@
         <label for="eos-chain-id">
             <strong>已签名报文</strong>
         </label>
-        <textarea id="signd-message" class="form-control" rows="10" readonly=true></textarea>
+        <textarea id="signed-message" class="form-control" rows="10" readonly=true></textarea>
     </div>
 
     <div class="form-group">
-        <button id="copy" class="btn btn-success" data-clipboard-target="#signd-message">复制已签名报文</button>
+        <button id="copy" class="btn btn-success" data-clipboard-target="#signed-message">复制已签名报文</button>
     </div>
 
     <!-- 1、引入相关的 clipboard 文件  -->
