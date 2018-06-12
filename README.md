@@ -2,7 +2,7 @@
 
 ## EOSeco 超级节点账户 | BPC account name ：eosecoeoseco
 
-EOS 已经上线，但是很多用户苦于没有放心的钱包不能投票。EOSeco 推出了离线投票工具，可以完全在离线的环境下使用，保证用户私钥的安全。整个投票流程分为3个步骤：
+EOS 已经上线，但是很多用户苦于没有放心的钱包不能投票。EOSeco 推出了离线投票工具，可以完全在离线的环境下使用，保证用户私钥的安全。整个投票流程分为3个步骤：
 
 EOS Offline Voting Tool can be use offline for safty reason.
 
@@ -20,7 +20,7 @@ Visit EOSeco explorer voting page :
 
 ![投票界面](resource/img/1.jpg)
 
-勾选希望投票的超级节点，默认会把EOSeco勾选上，如果你一定不投我们的话，可以取消勾选，最多不能选择超过30个。
+勾选希望投票的超级节点，默认会把EOSeco勾选上，如果你一定不投我们的话，可以取消勾选，最多不能选择超过30个。
 
 click BPCs you want, no more than 30.
 
@@ -41,7 +41,7 @@ Download latest version of  [Offline Signing Tool]().
 
 ![签名界面](resource/img/3.jpg)
 
-将第一步中生成的待签名交易报文复制进来，确认账户正确，然后输入私钥，点击签名交易报文。
+将第一步中生成的待签名交易报文复制进来，确认账户正确，然后输入私钥，点击签名交易报文。
 
 Paste unsigned transaction in step #1, make sure account name is right, then type in private key and click Sign Transaction.
 
