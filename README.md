@@ -35,9 +35,13 @@ Input your account name , click to generate transaction, and copy it.
 
 This step need private key, strongly recommend offline operation.
 
-下载最新版本的EOSeco [离线签名工具]()。
+下载最新版本的EOSeco [离线签名工具](https://github.com/EOSeco-team/eos-local-voting-page/archive/v0.4.zip
+)。
 
-Download latest version of  [Offline Signing Tool]().
+Download latest version of  [Offline Signing Tool](https://github.com/EOSeco-team/eos-local-voting-page/archive/v0.4.zip
+).
+
+MD5:33b413d7f568dc1896a82d5bbb0ee114
 
 ![签名界面](resource/img/3.jpg)
 
