@@ -38,7 +38,7 @@
 
         }
 
-        function getAccount() {
+        function parseTransaction() {
             let unsigned = document.getElementById('unsigned-message').value;
             let jsonUnsigned;
             try {
@@ -47,8 +47,26 @@
                 alert('格式错误 | Format Error');
             }
 
-            let accountName = jsonUnsigned.transaction.actions[0].authorization[0].actor;
+            if (jsonUnsigned.transaction.actions.length > 1) {
+                alert('暂时不支持多action | Do not support multi actions yet');
+                document.getElementById('unsigned-message').style.backgroundColor = "red";
+            }
+
+            let action = jsonUnsigned.transaction.actions[0];
+            let contract = action.account;
+            let func = action.name;
+            let accountName = action.authorization[0].actor;
             document.getElementById('account_name').value = accountName;
+            document.getElementById('contract_name').value = contract;
+            document.getElementById('func_name').value = func;
+
+            if (contract != "eosio") {
+                document.getElementById('contract_name').style.backgroundColor = "red";
+            }
+
+            if (func != "voteproducer") {
+                document.getElementById('func_name').style.backgroundColor = "red";
+            }
         }
 
 
@@ -66,9 +84,15 @@
         <div class="alert alert-warning" role="alert">
             此页面可以离线使用，私钥只会在本地用来签名交易，您的私钥不会通过网络传输。安全起见，请关闭所有其他网页，在签名成功，复制报文后请立即关闭此页面。
         </div>
+        <div class="alert alert-danger" role="alert">
+            请注意交易报文的"合约"应该是"eosio","功能"应该是"voteproducer"。
+        </div>
         <div class="alert alert-warning" role="alert">
             This page can work offline, private key just for signing transaction, private key will not transfer through network. To be
             safe, you can close other web pages. After signing, you can close this page immediately.
+        </div>
+        <div class="alert alert-danger" role="alert">
+            Please notify that "Contract" should be "eosio", and "Function" should be "voteproducer".
         </div>
     </section>
 
@@ -83,7 +107,7 @@
         <label for="eos-chain-id">
             <strong>未签名报文 | Unsigned Transaction</strong>
         </label>
-        <textarea id="unsigned-message" class="form-control" rows="10" onblur="getAccount()"></textarea>
+        <textarea id="unsigned-message" class="form-control" rows="10" onblur="parseTransaction()"></textarea>
     </div>
 
     <div class="form-group">
@@ -91,6 +115,16 @@
             <strong>账户 | Account</strong>
         </label>
         <input id="account_name" class="form-control" readonly=true></input>
+
+        <label for="eos-chain-id">
+            <strong>合约 | Contract</strong>
+        </label>
+        <input id="contract_name" class="form-control" readonly=true></input>
+
+        <label for="eos-chain-id">
+            <strong>功能 | Function</strong>
+        </label>
+        <input id="func_name" class="form-control" readonly=true></input>
     </div>
 
 
