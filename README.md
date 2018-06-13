@@ -12,9 +12,9 @@ EOS Offline Voting Tool can be use offline for safty reason.
 
 This step go online.
 
-如果你不知道你的EOS账户名，请访问：[映射查询](https://explorer.eoseco.com/snapshot)查询用户名。
+如果你不知道你的EOS账户名，请访问：[映射查询](https://explorer.eoseco.com/snapshots)查询用户名。
 
-If you do not know your EOS account name , please go to [Snapshot query](https://explorer.eoseco.com/snapshot).
+If you do not know your EOS account name , please go to [Snapshot query](https://explorer.eoseco.com/snapshots).
 
 
 访问 EOSeco区块链浏览器的投票界面：
