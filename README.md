@@ -12,6 +12,11 @@ EOS Offline Voting Tool can be use offline for safty reason.
 
 This step go online.
 
+如果你不知道你的EOS账户名，请访问：[映射查询](https://explorer.eoseco.com/snapshot)查询用户名。
+
+If you do not know your EOS account name , please go to [Snapshot query](https://explorer.eoseco.com/snapshot).
+
+
 访问 EOSeco区块链浏览器的投票界面：
 [EOSeco投票排行](https://explorer.eoseco.com/voting)
 
@@ -45,9 +50,9 @@ MD5:33b413d7f568dc1896a82d5bbb0ee114
 
 ![签名界面](resource/img/3.jpg)
 
-将第一步中生成的待签名交易报文复制进来，确认账户正确，然后输入私钥，点击签名交易报文。
+将第一步中生成的待签名交易报文复制进来，确认账户正确，**确保"合约“是 "eosio“，确保"功能“是 "voteproducer“**，然后输入私钥，点击签名交易报文。
 
-Paste unsigned transaction in step #1, make sure account name is right, then type in private key and click Sign Transaction.
+Paste unsigned transaction in step #1, make sure account name is right, **make sure "Contract" is "eosio" , make sure "Function" is "voteproducer"** , then type in private key and click Sign Transaction.
 
 ![签名界面](resource/img/4.jpg)
 
